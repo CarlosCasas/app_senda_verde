@@ -1,0 +1,28 @@
+body {
+    background-color: #f8f9fa;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+.carousel-item {
+    height: 400px; /* Altura del carrusel */
+}
+
+.carousel-item img {
+    object-fit: cover; /* Asegura que la imagen cubra todo el contenedor */
+    height: 100%; /* Altura completa */
+}
+
+.bg-success {
+    background-color: #28a745 !important; /* Verde */
+}
+
+.bg-light {
+    background-color: #f8f9fa !important; /* Gris claro */
+}
+
+.bg-dark {
+    background-color: #343a40 !important; /* Gris oscuro */
+}
