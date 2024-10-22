@@ -15,6 +15,10 @@ h1 {
     height: 100%; /* Altura completa */
 }
 
+.carousel-noticia img {
+    height: 120px;
+}
+
 .bg-success {
     background-color: #28a745 !important; /* Verde */
 }
@@ -25,4 +29,12 @@ h1 {
 
 .bg-dark {
     background-color: #343a40 !important; /* Gris oscuro */
+}
+
+.page-banner{
+    width: 100%!important;
+}
+
+.div-menu{
+    padding: 1rem 5rem;
 }
