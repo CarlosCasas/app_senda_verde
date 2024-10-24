@@ -89,3 +89,28 @@
 </script>
 -->
 
+<!-- Modal Paquetes -->
+<div class="modal fade" id="detallePaqueteModal" tabindex="-1" aria-labelledby="detallePaqueteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detallePaqueteModalLabel">Detalle del Paquete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Aquí se actualizará el contenido dinámico -->
+                <p id="detalleContenido"></p>
+            </div>
+            <div class="modal-footer">
+                <!-- Botón para contactar por WhatsApp -->
+                <a id="whatsappLink" href="#" class="btn btn-success" target="_blank">
+                    <i class="bi bi-whatsapp"></i> Reservar por WhatsApp
+                </a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

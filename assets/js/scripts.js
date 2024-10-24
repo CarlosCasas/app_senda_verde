@@ -13,7 +13,7 @@ $(document).ready(function() {
 
         // Enviar el formulario via AJAX
         $.ajax({
-            url: registerUrl+'/includes/register.php', 
+            url: registerUrl+'includes/register.php', 
             type: 'POST',
             data: $(this).serialize(), 
             success: function(response) {
@@ -38,7 +38,7 @@ $(document).ready(function() {
         // Realizar la solicitud AJAX
         $.ajax({
             type: 'POST',
-            url: registerUrl+'/includes/login.php', 
+            url: registerUrl+'includes/login.php', 
             data: {
                 email: email,
                 password: password
@@ -63,4 +63,33 @@ $(document).ready(function() {
         });
     });
 
+});
+
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Seleccionamos el modal
+    const detallePaqueteModal = document.getElementById('detallePaqueteModal');
+
+    // Evento que se dispara cuando se abre el modal
+    detallePaqueteModal.addEventListener('show.bs.modal', function (event) {
+        // Botón que disparó el modal
+        const button = event.relatedTarget;
+
+        // Obtenemos los datos del botón que abrió el modal
+        const titulo = button.getAttribute('data-titulo');
+        const contenido = button.getAttribute('data-contenido');
+        const whatsapp = button.getAttribute('data-whatsapp');
+
+        // Actualizamos el título del modal
+        const modalTitle = detallePaqueteModal.querySelector('.modal-title');
+        modalTitle.textContent = titulo;
+
+        // Actualizamos el contenido del modal
+        const modalBodyContent = detallePaqueteModal.querySelector('#detalleContenido');
+        modalBodyContent.innerHTML = contenido;
+
+        // Actualizamos el enlace de WhatsApp
+        const whatsappLink = detallePaqueteModal.querySelector('#whatsappLink');
+        whatsappLink.href = `https://wa.me/${whatsapp.replace(/[-\s]/g, '')}`;
+    });
 });

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,9 +9,26 @@
     <title>Senda Verde - Agencia de Viajes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css"> <!-- Enlace al CSS personalizado -->
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Enlace a Font Awesome -->
+
 </head>
 <body>
+
+    <?php
+        if (isset($_SESSION['username'])) {
+            // Usuario ha iniciado sesión
+            $usuarioLogueado = true;
+        } else {
+            // Usuario no ha iniciado sesión
+            $usuarioLogueado = false;
+        }
+
+        // Leer el archivo JSON
+        $jsonData = file_get_contents('includes/ofertas.json');
+        $ofertas = json_decode($jsonData, true);
+
+
+    ?>
 
     <!-- Incluir encabezado -->
     <?php 
@@ -67,43 +87,107 @@
     <div class="container mt-5">
         <h2>Ofertas Destacadas</h2>
         <div class="row">
-            <!-- Ejemplo de columnas de ofertas -->
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="assets/images/ofertas/oferta1.jpg" class="card-img-top" alt="Oferta 1"> 
-                    <div class="card-body">
-                        <h5 class="card-title">Destino 1</h5>
-                        <p class="card-text">Descripción de la oferta.</p>
+            <?php 
+
+        foreach ($ofertas as $oferta) {
+            $precioNormal = $oferta['precioNormal'];
+            $precioOferta = $oferta['precioOferta'];
+
+            // Aplicar 10% de descuento si el usuario está logueado
+            if ($usuarioLogueado) {
+                $precioOferta *= 0.9; // Aplicar un 10% de descuento adicional
+            }
+
+            ?>
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <h4><?php echo $oferta['destino']; ?></h4>
+                        </div>
+                        <img src="<?php echo $oferta['imagen']; ?>" class="card-img-top" alt="<?php echo $oferta['titulo']; ?>">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $oferta['titulo']; ?></h5>
+                            <p class="card-text"><?php echo $oferta['descripcion']; ?></p>
+                            <div class="precio">
+                                <h4 class="precio-actual text-success">S/. <?php echo number_format($precioOferta, 2); ?></h4>
+                                <p class="precio-anterior text-muted"><del>S/. <?php echo number_format($precioNormal, 2); ?></del></p>
+                            </div>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detallePaqueteModal"
+                                    data-titulo="<?php echo $oferta['titulo']; ?>"
+                                    data-contenido="<?php echo $oferta['detalle']; ?>"
+                                    data-whatsapp="999-999-999">
+                                Más información
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
+            <!--<div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h4>Machipichu, Cusco</h4>
+                    </div>
                     <img src="assets/images/ofertas/oferta2.jpg" class="card-img-top" alt="Oferta 2"> 
                     <div class="card-body">
-                        <h5 class="card-title">Destino 2</h5>
-                        <p class="card-text">Descripción de la oferta.</p>
+                        <h5 class="card-title">Machipichu</h5>
+                        <p class="card-text">Una experiencia única en el centro de Machipichu.</p>
+
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detallePaqueteModal" data-titulo="Paquete turístico Churín" data-contenido="
+                        <ul>
+                        <li>Alojamiento: 01 noche en Hotel 3 Estrellas con baño privado, Agua Caliente.</li>
+                        <li>Alimentación: 01 Almuerzo Buffet en el Valle Sagrado (Tunupa). 01 Desayuno en hotel de Machu Picchu.</li>
+                        <li>Traslados: Transporte turístico para tours.</li>
+                        <li>Tours: Conocerás en el Valle Sagrado (El Mirador de Taray, Pisac, Mercado de Pisac, Urubamba, Ollantaytambo).</li>
+                        </ul>" data-whatsapp="999-999-999">
+                            Más información
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h4>Pastoruri, Huaraz</h4>
+                    </div>
                     <img src="assets/images/ofertas/oferta3.jpg" class="card-img-top" alt="Oferta 3"> 
                     <div class="card-body">
-                        <h5 class="card-title">Destino 3</h5>
-                        <p class="card-text">Descripción de la oferta.</p>
+                        <h5 class="card-title">Huaraz</h5>
+                        <p class="card-text">Una experiencia única en el centro de Pastoruri.</p>
+
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detallePaqueteModal" data-titulo="Paquete turístico Churín" data-contenido="
+                        <ul>
+                        <li>Alojamiento: 1 noche en el Hotel Mamahuarmi 2*</li>
+                        <li>Alimentación: 2 almuerzos (1 campestre en piscigranja)</li>
+                        <li>Traslados: Transporte Lima-Churín-Lima, traslado interno</li>
+                        <li>Tours: Visita al complejo termal Mamahuarmi y sitios turísticos</li>
+                        </ul>" data-whatsapp="999-999-999">
+                            Más información
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h4>Ica, Ica</h4>
+                    </div>
                     <img src="assets/images/ofertas/oferta4.jpg" class="card-img-top" alt="Oferta 4"> 
                     <div class="card-body">
-                        <h5 class="card-title">Destino 4</h5>
-                        <p class="card-text">Descripción de la oferta.</p>
+                        <h5 class="card-title">Ica</h5>
+                        <p class="card-text">Una experiencia única en el centro de Ica.</p>
+
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detallePaqueteModal" data-titulo="Paquete turístico Churín" data-contenido="
+                        <ul>
+                        <li>Alojamiento: 1 noche en el Hotel Mamahuarmi 2*</li>
+                        <li>Alimentación: 2 almuerzos (1 campestre en piscigranja)</li>
+                        <li>Traslados: Transporte Lima-Churín-Lima, traslado interno</li>
+                        <li>Tours: Visita al complejo termal Mamahuarmi y sitios turísticos</li>
+                        </ul>" data-whatsapp="999-999-999">
+                            Más información
+                        </button>
                     </div>
                 </div>
-            </div>
+            </div>-->
+            <?php } ?>
         </div>
     </div>
 
@@ -154,10 +238,10 @@
     <!-- Sección de Suscribirme -->
     <div class="container mt-5">
         <h2>¡Suscríbete!</h2>
-        <form>
+        <form action="includes/procesar_suscripcion.php" method="POST">
             <div class="mb-3">
                 <label for="email" class="form-label">Introduce tu correo electrónico:</label>
-                <input type="email" class="form-control" id="emailSuscribirse" placeholder="Ejemplo: correo@ejemplo.com" required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Ejemplo: correo@ejemplo.com" required>
             </div>
             <button type="submit" class="btn btn-primary">Suscribirme</button>
         </form>

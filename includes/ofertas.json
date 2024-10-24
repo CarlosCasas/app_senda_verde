@@ -1,0 +1,38 @@
+[
+    {
+        "destino": "Churín, Ayacucho",
+        "titulo": "Paquete turístico",
+        "descripcion": "Una experiencia única en el centro termal de Churín.",
+        "precioNormal": 1500,
+        "precioOferta": 1200,
+        "imagen": "assets/images/ofertas/oferta1.jpg",
+        "detalle": "<ul><li>Alojamiento: 1 noche en el Hotel Mamahuarmi 2*</li><li>Alimentación: 2 almuerzos (1 campestre en piscigranja)</li><li>Traslados: Transporte Lima-Churín-Lima, traslado interno</li><li>Tours: Visita al complejo termal Mamahuarmi y sitios turísticos</li></ul>"
+    },
+    {
+        "destino": "Machupicchu, Cusco",
+        "titulo": "Paquete turístico",
+        "descripcion": "Una experiencia única en el centro de Machupicchu.",
+        "precioNormal": 1800,
+        "precioOferta": 1620,
+        "imagen": "assets/images/ofertas/oferta2.jpg",
+        "detalle": "<ul><li>Alojamiento: 01 noche en Hotel 3 estrellas</li><li>Alimentación: 01 Almuerzo Buffet</li><li>Traslados: Transporte turístico</li><li>Tours: Valle Sagrado, Pisac, Ollantaytambo</li></ul>"
+    },
+    {
+        "destino": "Pastoruri, Huaraz",
+        "titulo": "Paquete turístico",
+        "descripcion": "Una experiencia única en el centro de Pastoruri.",
+        "precioNormal": 1300,
+        "precioOferta": 1170,
+        "imagen": "assets/images/ofertas/oferta3.jpg",
+        "detalle": "<ul><li>Alojamiento: 01 noche en hotel 3 estrellas</li><li>Alimentación: 01 Almuerzo campestre</li><li>Traslados: Transporte turístico</li><li>Tours: Complejo termal y sitios turísticos</li></ul>"
+    },
+    {
+        "destino": "Ica, Ica",
+        "titulo": "Paquete turístico",
+        "descripcion": "Una experiencia única en el centro de Ica.",
+        "precioNormal": 1400,
+        "precioOferta": 1260,
+        "imagen": "assets/images/ofertas/oferta4.jpg",
+        "detalle": "<ul><li>Alojamiento: 01 noche en hotel 3 estrellas</li><li>Alimentación: 01 Almuerzo campestre</li><li>Traslados: Transporte turístico</li><li>Tours: Complejo termal y sitios turísticos</li></ul>"
+    }
+]
