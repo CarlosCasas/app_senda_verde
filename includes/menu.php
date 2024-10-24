@@ -1,21 +1,26 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Senda Verde</a>
+    <a class="navbar-brand" href="#">
+    <img src="<?= BASE_URL ?>assets/images/logo.png" alt="Senda Verde Logo" style="width: 60px; height: auto;">
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
+        <?php 
+            $currentPage = basename($_SERVER['REQUEST_URI']);
+        ?>
         <ul class="navbar-nav me-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="<?=BASE_URL?>">Inicio</a>
+            <li class="nav-item <?= $currentPage === 'index.php' || $currentPage === 'app_senda_verde/' ? 'active' : '' ?>">
+                <a class="nav-link" href="<?= BASE_URL ?>">Inicio</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?=BASE_URL?>pages/ofertas.php">Ofertas</a>
+            <li class="nav-item <?= $currentPage === 'ofertas.php' ? 'active' : '' ?>">
+                <a class="nav-link" href="<?= BASE_URL ?>pages/ofertas.php">Ofertas</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Destinos</a>
+            <li class="nav-item <?= $currentPage === 'destinos.php' ? 'active' : '' ?>">
+                <a class="nav-link" href="<?= BASE_URL ?>pages/destinos.php">Destinos</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?=BASE_URL?>pages/contacto.php">Contáctanos</a>
+            <li class="nav-item <?= $currentPage === 'contacto.php' ? 'active' : '' ?>">
+                <a class="nav-link" href="<?= BASE_URL ?>pages/contacto.php">Contáctanos</a>
             </li>
             <?php if (isset($_SESSION['username'])): ?>
                 <li class="nav-item">

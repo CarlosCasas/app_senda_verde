@@ -4,6 +4,7 @@ body {
 
 h1 {
     margin-bottom: 30px;
+    font-family: 'GT-Eesti';
 }
 
 .carousel-item {
@@ -57,3 +58,22 @@ h1 {
     background-color: #128C7E; 
 }
 
+/* Estilo para el menú activo */
+.navbar-nav .nav-item.active .nav-link{
+    font-weight: bold; 
+    /*text-decoration: underline; 
+    text-decoration-color: green; */
+    color: green !important; 
+}
+
+.navbar-nav .nav-item .nav-link{
+    color: black; 
+    font-weight: bold; 
+    font-family: 'GT-Eesti';
+    font-size: 20px;
+    padding: 10px 25px;
+}
+
+.navbar-brand{
+    font-size: 20px;
+}

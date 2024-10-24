@@ -21,7 +21,7 @@
         }
 
         // Leer el archivo JSON
-        $jsonData = file_get_contents('../includes/ofertas.json');
+        $jsonData = file_get_contents('../includes/destinos.json');
         $ofertas = json_decode($jsonData, true);
 
 
@@ -41,46 +41,25 @@
 
     <div class="page-banner">
 
-        <img src="../assets/images/ofertas-banner.png" class="d-block w-100" alt="Destinos">
+    <img src="../assets/images/destinos-banner.jpg" class="d-block w-100" alt="Destinos">
 
     </div>
     <br>
-    
-    <!-- Ofertas -->
+
+    <!-- Destinos -->
     <div class="container-xl mt-6">
-        <h2>Ofertas Destacadas</h2>
+        <h2>Destinos</h2>
         <div class="row">
             <?php 
 
         foreach ($ofertas as $oferta) {
-            $precioNormal = $oferta['precioNormal'];
-            $precioOferta = $oferta['precioOferta'];
-
-            // Aplicar 10% de descuento si el usuario está logueado
-            if ($usuarioLogueado) {
-                $precioOferta *= 0.9; // Aplicar un 10% de descuento adicional
-            }
-
             ?>
                 <div class="col-md-3">
                     <div class="card text-center">
-                        <div class="card-header">
-                            <h4><?php echo $oferta['destino']; ?></h4>
-                        </div>
                         <img src="../<?php echo $oferta['imagen']; ?>" class="card-img-top" alt="<?php echo $oferta['titulo']; ?>">
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo $oferta['titulo']; ?></h5>
-                            <p class="card-text"><?php echo $oferta['descripcion']; ?></p>
-                            <div class="precio">
-                                <h4 class="precio-actual text-success">S/. <?php echo number_format($precioOferta, 2); ?></h4>
-                                <p class="precio-anterior text-muted"><del>S/. <?php echo number_format($precioNormal, 2); ?></del></p>
-                            </div>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detallePaqueteModal"
-                                    data-titulo="<?php echo $oferta['titulo']; ?>"
-                                    data-contenido="<?php echo $oferta['detalle']; ?>"
-                                    data-whatsapp="999-999-999">
-                                Más información
-                            </button>
+                            <h5 class="card-title"><?php echo $oferta['destino']; ?></h5>
+                            <p class="card-text"><?php echo $oferta['descripcion']; ?></p>                                                     
                         </div>
                     </div>
                 </div>   

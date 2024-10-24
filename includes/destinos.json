@@ -1,0 +1,26 @@
+[
+    {
+        "destino": "Churín",
+        "titulo": "Paquete turístico",
+        "descripcion": "Una experiencia única en el centro termal de Churín.",
+        "imagen": "assets/images/destinos/destino1.jpg"
+    },
+    {
+        "destino": "Machupicchu",
+        "titulo": "Paquete turístico",
+        "descripcion": "Una experiencia única en el centro de Machupicchu.",
+        "imagen": "assets/images/destinos/destino2.jpg"
+    },
+    {
+        "destino": "Pastoruri",
+        "titulo": "Paquete turístico",
+        "descripcion": "Una experiencia única en el centro de Pastoruri.",
+        "imagen": "assets/images/destinos/destino3.jpg"
+    },
+    {
+        "destino": "Ica",
+        "titulo": "Paquete turístico",
+        "descripcion": "Una experiencia única en el centro de Ica.",
+        "imagen": "assets/images/destinos/destino4.jpg"
+    }
+]
